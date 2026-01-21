@@ -367,8 +367,8 @@ export default function Home() {
           </div>
         </section>
 
-        <SaveReviewRestoreSection onOpenInstall={openInstallModal} />
-        <AgenticAISearchSection onOpenInstall={openInstallModal} />
+        <SaveReviewRestoreSection onOpenInstall={() => {}} />
+        <AgenticAISearchSection onOpenInstall={() => {}} />
         <FeatureVideoSection
           title="Версионность между IDE"
           description="Переключайтесь между Cursor, Windsurf и VSCode -- и продолжайте с того места, где остановились."
@@ -376,14 +376,14 @@ export default function Home() {
           fallbackVideoSrc={VIDEO_URLS.crossIde}
           gradientClass="gradient-yellow-red-diagonal"
         />
-        <WhyNotGitSection onOpenInstall={openInstallModal} />
-        <VibeCodingTweetsSection onOpenInstall={openInstallModal} />
+        <WhyNotGitSection onOpenInstall={() => {}} />
+        <VibeCodingTweetsSection onOpenInstall={() => {}} />
         <TestimonialsSection />
-        <FAQSection onOpenInstall={openInstallModal} />
+        <FAQSection onOpenInstall={() => {}} />
         <Footer />
       </div>
 
-      <InstallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </div>
   )
 }
