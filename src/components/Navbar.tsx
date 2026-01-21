@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, Menu, X } from "lucide-react"
-import InstallModal from "@/components/InstallModal"
+import { Menu, X } from "lucide-react"
 
 interface NavbarProps {
   isBannerVisible?: boolean
@@ -10,7 +9,6 @@ interface NavbarProps {
 export default function Navbar({ isBannerVisible = true }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isInstallModalOpen, setIsInstallModalOpen] = useState(false)
 
   const handleScroll = useCallback(() => {
     const isScrolled = window.scrollY > 10
@@ -63,9 +61,9 @@ export default function Navbar({ isBannerVisible = true }: NavbarProps) {
               xmlns="http://www.w3.org/2000/svg"
               className="mr-2"
             >
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="1" />
-              <path d="M2 17L12 22L22 17" stroke="#FFFFFF" strokeWidth="1" />
-              <path d="M2 12L12 17L22 12" stroke="#FFFFFF" strokeWidth="1" />
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="12" cy="12" r="2" fill="#22D3EE"/>
             </svg>
             <span
               className="logo-text"
@@ -80,30 +78,25 @@ export default function Navbar({ isBannerVisible = true }: NavbarProps) {
                 height: "auto",
               }}
             >
-              Rewind
+              Читайполка
             </span>
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
-            <a href="https://tally.so/r/n0l7BB" target="_blank" rel="noopener noreferrer">
-              <Button
-                className="bg-transparent hover:bg-white/10 border border-white/30 rounded-lg"
-                style={{
-                  fontFamily:
-                    'GeistMono, ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
-                  fontSize: "14px",
-                  lineHeight: "18px",
-                  fontWeight: "600",
-                  letterSpacing: "0.32px",
-                  color: "#FFFFFF",
-                  height: "48px",
-                }}
-              >
-                ОТЗЫВ
-              </Button>
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#catalog" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
+              Каталог
+            </a>
+            <a href="#authors" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
+              Авторы
+            </a>
+            <a href="#library" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
+              Библиотека
+            </a>
+            <a href="#community" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
+              Сообщество
             </a>
             <Button
-              className="bg-white text-black hover:bg-gray-200 px-6 h-12 rounded-lg"
+              className="bg-gradient-to-r from-cyan-500 to-pink-500 text-white hover:opacity-90 px-6 h-12 rounded-lg"
               style={{
                 fontFamily:
                   'GeistMono, ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
@@ -111,14 +104,11 @@ export default function Navbar({ isBannerVisible = true }: NavbarProps) {
                 lineHeight: "18px",
                 fontWeight: "600",
                 letterSpacing: "0.56px",
-                color: "#000000",
                 height: "48px",
                 borderRadius: "8px",
               }}
-              onClick={() => setIsInstallModalOpen(true)}
             >
-              <Download className="mr-2 h-4 w-4 stroke-[2.5px]" />
-              СКАЧАТЬ
+              ВОЙТИ
             </Button>
           </div>
 
@@ -140,32 +130,37 @@ export default function Navbar({ isBannerVisible = true }: NavbarProps) {
             mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-[-20px] opacity-0 pointer-events-none"
           }`}
         >
-          <div className="p-4 flex flex-col gap-4">
+          <div className="p-4 flex flex-col gap-3">
             <a
-              href="https://tally.so/r/n0l7BB"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
+              href="#catalog"
+              className="text-white hover:text-cyan-400 transition-colors py-3 px-4"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Button
-                className="bg-transparent hover:bg-white/10 border border-white/30 rounded-lg w-full justify-start"
-                style={{
-                  fontFamily:
-                    'GeistMono, ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
-                  fontSize: "14px",
-                  lineHeight: "18px",
-                  fontWeight: "600",
-                  letterSpacing: "0.32px",
-                  color: "#FFFFFF",
-                  height: "48px",
-                }}
-              >
-                ОТЗЫВ
-              </Button>
+              Каталог
+            </a>
+            <a
+              href="#authors"
+              className="text-white hover:text-cyan-400 transition-colors py-3 px-4"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Авторы
+            </a>
+            <a
+              href="#library"
+              className="text-white hover:text-cyan-400 transition-colors py-3 px-4"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Библиотека
+            </a>
+            <a
+              href="#community"
+              className="text-white hover:text-cyan-400 transition-colors py-3 px-4"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Сообщество
             </a>
             <Button
-              className="bg-white text-black hover:bg-gray-200 rounded-lg w-full justify-start"
+              className="bg-gradient-to-r from-cyan-500 to-pink-500 text-white hover:opacity-90 rounded-lg w-full mt-2"
               style={{
                 fontFamily:
                   'GeistMono, ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
@@ -173,23 +168,16 @@ export default function Navbar({ isBannerVisible = true }: NavbarProps) {
                 lineHeight: "18px",
                 fontWeight: "600",
                 letterSpacing: "0.56px",
-                color: "#000000",
                 height: "48px",
                 borderRadius: "8px",
               }}
-              onClick={() => {
-                setMobileMenuOpen(false)
-                setIsInstallModalOpen(true)
-              }}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <Download className="mr-2 h-4 w-4 stroke-[2.5px]" />
-              СКАЧАТЬ
+              ВОЙТИ
             </Button>
           </div>
         </div>
       </div>
-
-      <InstallModal isOpen={isInstallModalOpen} onClose={() => setIsInstallModalOpen(false)} />
     </div>
   )
 }

@@ -1,9 +1,7 @@
-import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import HeroImage from "@/components/HeroImage"
 import FeatureVideo from "@/components/FeatureVideo"
 import Navbar from "@/components/Navbar"
-import InstallModal from "@/components/InstallModal"
 import Footer from "@/components/Footer"
 import FAQSection from "@/components/FAQSection"
 import SaveReviewRestoreSection from "@/components/SaveReviewRestoreSection"
@@ -20,12 +18,7 @@ const VIDEO_URLS = {
 }
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isBannerVisible, setIsBannerVisible] = useState(true)
-
-  const openInstallModal = () => {
-    setIsModalOpen(true)
-  }
 
   return (
     <div
@@ -68,11 +61,11 @@ export default function Home() {
                     color: "#FFFFFF",
                     textShadow: "0 1px 2px rgba(0,0,0,0.3)",
                   }}
-                  aria-label="AI-контроль версий"
+                  aria-label="Читайполка"
                 >
-                  AI-контроль
+                  Цифровая
                   <br />
-                  версий
+                  библиотека
                 </h1>
                 <p
                   className="mx-auto h-auto select-text mb-3"
@@ -88,7 +81,7 @@ export default function Home() {
                     backgroundColor: "transparent",
                   }}
                 >
-                  Отменяйте ошибки AI мгновенно. Просматривайте безопасно. Откатывайте в один клик.
+                  ИИ-помощник подберёт книги. Чат-боты поддержат. Авто-теги упростят поиск.
                 </p>
               </div>
 
@@ -101,22 +94,15 @@ export default function Home() {
               <div>
                 <div className="flex flex-col gap-3 sm:gap-4 mb-4">
                   <Button
-                    className="bg-white hover:bg-gray-100 flex items-center justify-center px-4 sm:px-6 w-full rounded-lg shadow-lg font-mono text-xs sm:text-sm md:text-base font-semibold tracking-wider text-black h-[50px] sm:h-[60px]"
-                    onClick={openInstallModal}
+                    className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:opacity-90 flex items-center justify-center px-4 sm:px-6 w-full rounded-lg shadow-lg font-mono text-xs sm:text-sm md:text-base font-semibold tracking-wider text-white h-[50px] sm:h-[60px]"
                   >
-                    <Download className="mr-2 h-4 w-4" /> УСТАНОВИТЬ
+                    НАЧАТЬ ЧИТАТЬ
                   </Button>
-                  <a
-                    href="https://x.com/jackjack_eth"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-black hover:bg-black/80 flex items-center justify-center px-4 sm:px-6 w-full rounded-lg shadow-lg font-mono text-xs sm:text-sm md:text-base font-semibold tracking-wider text-white h-[50px] sm:h-[60px] border border-white/10"
+                  <Button
+                    className="bg-black hover:bg-white/10 flex items-center justify-center px-4 sm:px-6 w-full rounded-lg shadow-lg font-mono text-xs sm:text-sm md:text-base font-semibold tracking-wider text-white h-[50px] sm:h-[60px] border border-white/20"
                   >
-                    <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    НАПИСАТЬ
-                  </a>
+                    КАТАЛОГ
+                  </Button>
                 </div>
               </div>
             </div>
@@ -136,9 +122,9 @@ export default function Home() {
                   color: "#FFFFFF",
                   textShadow: "0 1px 2px rgba(0,0,0,0.3)",
                 }}
-                aria-label="AI-контроль версий"
+                aria-label="Читайполка"
               >
-                AI-контроль версий
+                Цифровая библиотека нового поколения
               </h1>
               <p
                 className="mb-6 sm:mb-8 mx-auto h-auto select-text"
@@ -154,26 +140,19 @@ export default function Home() {
                   backgroundColor: "transparent",
                 }}
               >
-                Отменяйте ошибки AI мгновенно -- сохраняйте прогресс и восстанавливайте в один клик.
+                ИИ-помощник подберёт книги по вкусу -- чат-боты поддержат авторов -- умные теги упростят поиск.
               </p>
               <div className="flex flex-row justify-center gap-3 md:gap-4 mb-8">
                 <Button
-                  className="bg-white hover:bg-gray-100 flex items-center justify-center px-4 md:px-6 lg:px-8 rounded-lg shadow-lg font-mono text-sm md:text-base font-semibold tracking-wider text-black h-[50px] md:h-[60px] min-w-[180px] md:min-w-[220px]"
-                  onClick={openInstallModal}
+                  className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:opacity-90 flex items-center justify-center px-4 md:px-6 lg:px-8 rounded-lg shadow-lg font-mono text-sm md:text-base font-semibold tracking-wider text-white h-[50px] md:h-[60px] min-w-[180px] md:min-w-[220px]"
                 >
-                  <Download className="mr-2 h-4 w-4" /> УСТАНОВИТЬ
+                  НАЧАТЬ ЧИТАТЬ
                 </Button>
-                <a
-                  href="https://x.com/jackjack_eth"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-black hover:bg-black/80 flex items-center justify-center px-4 md:px-6 lg:px-8 rounded-lg shadow-lg font-mono text-sm md:text-base font-semibold tracking-wider text-white h-[50px] md:h-[60px] min-w-[180px] md:min-w-[220px] border border-white/10"
+                <Button
+                  className="bg-black hover:bg-white/10 flex items-center justify-center px-4 md:px-6 lg:px-8 rounded-lg shadow-lg font-mono text-sm md:text-base font-semibold tracking-wider text-white h-[50px] md:h-[60px] min-w-[180px] md:min-w-[220px] border border-white/20"
                 >
-                  <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                  НАПИСАТЬ
-                </a>
+                  КАТАЛОГ
+                </Button>
               </div>
               <div className="relative w-full flex-grow flex items-center justify-center rounded-md overflow-hidden">
                 <div className="w-full sm:w-[85%] md:max-w-[1200px] mx-auto">
