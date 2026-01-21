@@ -1,3 +1,7 @@
-# smart-education-initiative
+# Rewind - AI-контроль версий
 
-Initial repository setup for pr-poehali-dev/smart-education-initiative
+![Preview](preview.png)
+
+Лендинг для инструмента контроля версий кода при работе с AI-ассистентами. Позволяет сохранять, просматривать и восстанавливать код после изменений AI в один клик. Включает hero-секцию с градиентом, список поддерживаемых IDE, секции с видео-демонстрациями, отзывы пользователей и FAQ.
+
+`"tags": ["landing", "dark", "ai", "developer", "gradient", "animations"]`
